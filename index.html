@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <script src="./umd.js"></script>
+
+</head>
+
+<body>
+    <ce-router-configuration>
+        <ce-route path="category" fragment="/category">
+            <ce-route path=":id" fragment="/category/1234">
+                <ce-route path="detail" fragment="/category/1234/detail">
+                    <ce-route path=":subpath" fragment="/category/1234/detail/whatever"></ce-route>
+                </ce-route>
+            </ce-route>
+            <ce-route path="" fragment="/category/">
+            </ce-route>
+            <ce-route path="*" fragment="/category/whatever">
+                <ce-route path="test" fragment="/category/whatever/test"></ce-route>
+            </ce-route>
+        </ce-route>
+        <ce-route path="item" fragment="/item">
+            <ce-route path=":id" fragment="/item/1234">
+                <ce-route path="detail" fragment="/item/1234/detail"></ce-route>
+            </ce-route>
+        </ce-route>
+        </ce-route>
+        <ce-route path="test1" fragment="/test1.html">
+        </ce-route>
+        <ce-route path="test2" fragment="/test2.html">
+        </ce-route>
+        <ce-route path="**" fragment="any"></ce-route>
+    </ce-router-configuration>
+    <a href="/test1.html"></a><ce-router-link path="/test1">/test1</ce-router-link></a>
+    <a href="/test2.html"></a><ce-router-link path="/test2">/test2</ce-router-link></a>
+    <ce-router-outlet></ce-router-outlet>
+</body>
+
+</html>
